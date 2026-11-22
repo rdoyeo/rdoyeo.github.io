@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-figtree), var(--font-korean-sans), sans-serif;
+  --font-serif: var(--font-newsreader), var(--font-korean-serif), Georgia, serif;
+  --font-mono: var(--font-plex);
+}
+
+body { margin: 0; background: #0a0c0b; color: #e9ede8; font-family: var(--font-bricolage), Arial, sans-serif; }
+
+.footer-link {
+  color: var(--muted);
+  transition: text-shadow 180ms ease;
+}
+
+.footer-link:hover,
+.footer-link:focus-visible {
+  text-shadow: 0 0 6px rgb(255 255 255 / 90%), 0 0 16px rgb(255 255 255 / 65%);
+}
+
+.footer-link:focus-visible {
+  outline: 1px solid white;
+  outline-offset: 5px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-link { transition: none; }
+}
+
+html { scroll-behavior: smooth; }
+
+@layer base { h1, h2, h3, h4 { font-family: var(--font-sans); } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+@keyframes nav-glow { 50% { box-shadow: 0 0 20px rgb(255 255 255 / 35%); } }
+.doyeon-cta:hover { animation: nav-glow 1.8s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .doyeon-cta:hover { animation: none; } }
+
+:root {
+  color-scheme: dark;
+  --ground: #0a0c0b;
+  --surface: #0d0f0e;
+  --raised: #1a1e1b;
+  --line: #272c28;
+  --line-strong: #434a45;
+  --image-border: #3f3f3f;
+  --ink: #e9ede8;
+  --muted: #949b95;
+  --green: #5bd684;
+  --green-deep: #1d9d54;
+  --green-text: #5bd684;
+  --project-surface: var(--surface);
+  --terminal-accent: #B4D4CF;
+  --terminal-background: #0D0F0E;
+}
+:root[data-theme='light'] {
+  color-scheme: light;
+  --ground: #ffffff;
+  --surface: #ffffff;
+  --raised: #e4e8e1;
+  --line: #d0d6cd;
+  --line-strong: #9fa89f;
+  --image-border: #666666;
+  --ink: #101311;
+  --muted: #566058;
+  --green: #1d9d54;
+  --green-deep: #137a3f;
+  --green-text: #137a3f;
+  --project-surface: #fcfcfc;
+  --terminal-accent: #6E94B2;
+  --terminal-background: #ffffff;
+}
+body { background: var(--ground); color: var(--ink); }
+
+/* Solid card surfaces cover the snow layer, including between card contents. */
+.project-card {
+  background-color: #0d0f0e;
+}
+:root[data-theme='light'] .project-card {
+  background-color: #fcfcfc;
+}
